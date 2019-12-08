@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+
+  frontend:
+    image: horfimbor/global_frontend:dev
+    ports:
+      - 80:80
+
+  auth:
+    image: horfimbor/service_auth:dev
+    ports:
+      - 8000:8000
+    environment:
+      - MOD_TOKEN_SECRET=example
