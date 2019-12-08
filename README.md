@@ -12,7 +12,7 @@ you have to download and run `make build` for each services and global_frontend.
 
 Launch `make run`.
 
-open a decent browser on `http://localhost`
+open a decent browser on [http://localhost](http://localhost)
 
 that's all.
 
@@ -21,3 +21,18 @@ that's all.
 in the service folder : run `make build` to generate a new image with :dev tag
 
 in this repository folder, run `make run`
+
+### infra backend
+
+mysql admin : [http://localhost:8080](http://localhost:8080)
+
+- Server : db
+- user : root
+- password : rootpwd
+- database : 
+
+event source admin : [http://localhost:2113](http://localhost:2113)
+
+- url : http://localhost:2113
+- user : admin
+- password : changeit

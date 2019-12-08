@@ -16,3 +16,16 @@ services:
       timeout: 2s
     environment:
       - EVENTSTORE_RUN_PROJECTIONS=all
+
+  db:
+    image: mariadb:10.4
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpwd
+  # TODO add a volume
+
+  db-admin:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
