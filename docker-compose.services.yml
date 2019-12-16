@@ -6,6 +6,8 @@ services:
     image: horfimbor/global_frontend:dev
     ports:
       - 80:80
+    networks:
+      eventstore_net:
 
   auth:
     image: horfimbor/service_auth:dev
@@ -13,3 +15,6 @@ services:
       - 8000:8000
     environment:
       - MOD_TOKEN_SECRET=example
+      - RUST_BACKTRACE=full
+    networks:
+      eventstore_net:

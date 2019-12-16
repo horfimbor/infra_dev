@@ -1,10 +1,8 @@
-run: run-infra run-services
+run: up
+	docker-compose -f docker-compose.infra.yml  -f docker-compose.services.yml logs -f --tail 1
 
-run-infra:
-	docker-compose -f docker-compose.infra.yml  up -d
-
-run-services:
-	docker-compose -f docker-compose.services.yml up
+up:
+	docker-compose -f docker-compose.infra.yml -f docker-compose.services.yml up -d
 
 stop:
 	docker-compose -f docker-compose.infra.yml -f docker-compose.services.yml down
