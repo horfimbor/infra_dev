@@ -28,7 +28,8 @@ services:
       MYSQL_ROOT_PASSWORD: rootpwd
     networks:
       eventstore_net:
-  # TODO add a volume
+    volumes:
+      - "~/Data/mariadb/node1:/var/lib/eventstore"
 
   db-admin:
     image: adminer
