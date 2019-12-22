@@ -18,3 +18,12 @@ services:
       - RUST_BACKTRACE=full
     networks:
       eventstore_net:
+
+  stat:
+    image: horfimbor/service_stat:dev
+    ports:
+      - 8001:8001
+    environment:
+      - RUST_BACKTRACE=full
+    networks:
+      eventstore_net:
