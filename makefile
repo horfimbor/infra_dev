@@ -4,8 +4,12 @@ run: up
 up:
 	docker-compose -f docker-compose.infra.yml -f docker-compose.services.yml up -d
 
-stop:
+down:
 	docker-compose -f docker-compose.infra.yml -f docker-compose.services.yml down
+
+start: run
+
+stop: down
 
 ps:
 	docker-compose -f docker-compose.infra.yml -f docker-compose.services.yml ps
