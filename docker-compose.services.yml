@@ -7,7 +7,7 @@ services:
     ports:
       - 80:80
     networks:
-      eventstore_net:
+      horfimbor_network:
 
   auth:
     image: horfimbor/service_auth:dev
@@ -17,13 +17,22 @@ services:
       - MOD_TOKEN_SECRET=example
       - RUST_BACKTRACE=full
     networks:
-      eventstore_net:
+      horfimbor_network:
 
   stat:
     image: horfimbor/service_stat:dev
     ports:
-      - 8001:8001
+      - 8001:8000
     environment:
       - RUST_BACKTRACE=full
     networks:
-      eventstore_net:
+      horfimbor_network:
+
+  asteroid_loot:
+    image: horfimbor/service_asteroid_loot:dev
+    ports:
+      - 8002:8000
+    environment:
+      - RUST_BACKTRACE=full
+    networks:
+      horfimbor_network:

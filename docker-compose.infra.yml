@@ -18,7 +18,7 @@ services:
       - EVENTSTORE_RUN_PROJECTIONS=all
       - EVENTSTORE_EXT_IP=0.0.0.0
     networks:
-      eventstore_net:
+      horfimbor_network:
         ipv4_address: 172.28.1.1
 
   db:
@@ -27,7 +27,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: rootpwd
     networks:
-      eventstore_net:
+      horfimbor_network:
     volumes:
       - "~/Data/mariadb/node1:/var/lib/eventstore"
 
@@ -37,10 +37,10 @@ services:
     ports:
       - 8080:8080
     networks:
-      eventstore_net:
+      horfimbor_network:
 
 networks:
-  eventstore_net:
+  horfimbor_network:
     ipam:
       driver: default
       config:
