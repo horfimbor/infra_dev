@@ -34,5 +34,15 @@ services:
       - 8002:8000
     environment:
       - RUST_BACKTRACE=full
+      - MOD_SERVICE_SENTRY_DSN=http://8de1844f5c2c414dae0931f8254b1c07@sentry-base:9000/3
+    networks:
+      horfimbor_network:
+
+  planet:
+    image: horfimbor/service_planet:dev
+    ports:
+      - 8003:8000
+    environment:
+      - RUST_BACKTRACE=full
     networks:
       horfimbor_network:

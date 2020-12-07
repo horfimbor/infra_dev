@@ -1,6 +1,28 @@
 #!make
 
+include .env
+export
+
 DOCKER_COMPOSE = docker-compose -f docker-compose.infra.yml -f docker-compose.services.yml -f docker-compose.sentry.yml
+
+build-frontend:
+	cd ${GLOBAL_FRONTEND} && make build
+
+build-service-asteroid:
+	cd ${SERVICE_ASTEROID} && make build
+build-service-auth:
+	cd ${SERVICE_AUTH} && make build
+build-service-planet:
+	cd ${SERVICE_PLANET} && make build
+build-service-stat:
+	cd ${SERVICE_STAT} && make build
+
+build-all:
+	make build-frontend
+	make build-service-asteroid
+	make build-service-auth
+	make build-service-planet
+	make build-service-stat
 
 run: up
 	${DOCKER_COMPOSE} logs -f --tail 1
